@@ -1,0 +1,12 @@
+path <- "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+Sys.setenv(HEADLESS_CHROME=path)
+#devtools::install_github("hrbrmstr/decapitated")
+library(decapitated)
+library(rvest)
+#download_chromium()
+chrome_version()
+chrome_read_html("http://httpbin.org/")
+chrome_shot("http://httpbin.org/")
+testi <- chrome_read_html("https://www.asiakastieto.fi/yritykset/fi/csolutor-oy/17688454/taloustiedot")
+testi <- chrome_read_html("https://www.asiakastieto.fi/yritykset/fi/puolustusvoimat/09520299/yleiskuva")
+testi %>% html_nodes("dl") %>% html_nodes("dd")
